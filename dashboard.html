@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Crew - Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* Additional styles for the Terms and Conditions link */
+    .terms-conditions {
+      margin-top: 20px; /* Adjust margin as needed */
+      text-align: center; /* Center the link */
+    }
+    .terms-conditions a {
+      color: white; /* Change link color to white */
+      text-decoration: underline; /* Underline the link */
+    }
+  </style>
+</head>
+<body class="login-page">
+
+  <div class="glow-bg"></div>
+
+  <!-- Floating Profile Icon -->
+  <div class="profile-icon" onclick="toggleProfileMenu()"></div>
+  <div class="profile-menu" id="profileMenu">
+    <a href="profile.html">Profile</a>
+    <a href="history.html">History</a>
+    <a href="settings.html">Settings</a>
+    <a href="friends.html">Friends</a>
+    <a href="coins.html">Coins</a>
+    <a href="index.html">Logout</a>
+  </div>
+
+  <div class="login-container dashboard-card">
+
+    <!-- Welcome -->
+    <div class="welcome-banner">
+      <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" />
+      <div>
+        <h2>Hi, John Doe 👋</h2>
+        <p>Welcome to Student Crew</p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-box">
+        <h3>120</h3>
+        <p>Coins</p>
+      </div>
+      <div class="stat-box">
+        <h3>8</h3>
+        <p>Listings</p>
+      </div>
+      <div class="stat-box">
+        <h3>15</h3>
+        <p>Friends</p>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="btn-group dashboard-buttons">
+      <button onclick="window.location.href='sell.html'">📦 Sell Now</button>
+      <button onclick="window.location.href='history.html'">🧾 View History</button>
+      <button onclick="window.location.href='listings.html'">👤 My Listings</button>
+    </div>
+
+    <!-- Search -->
+    <div class="search-section">
+      <h2>🔍 Search for Products</h2>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Looking for something cool?" />
+        <span class="search-icon">🔎</span>
+      </div>
+
+      <div class="search-tags">
+        <span>#Textbooks</span>
+        <span>#Stationery</span>
+        <span>#Gadgets</span>
+        <span>#Hostel</span>
+        <span>#Essentials</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms and Conditions Link -->
+  <div class="terms-conditions">
+    <a href="terms.html">Terms and Conditions</a>
+  </div>
+  <script>
+    function toggleProfileMenu() {
+      const menu = document.getElementById("profileMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    window.onclick = function (e) {
+      const menu = document.getElementById("profileMenu");
+      const icon = document.querySelector(".profile-icon");
+      if (!menu.contains(e.target) && !icon.contains(e.target)) {
+        menu.style.display = "none";
+      }
+    };
+
+    // Typing animation for placeholder
+    const phrases = [
+      "Search by product name...",
+      "Try #Textbooks or #Hostel",
+      "Looking for instruments?",
+      "What do you need today?"
+    ];
+    let i = 0, j = 0, isDeleting = false;
+    const input = document.getElementById("searchInput");
+
+    function type() {
+      const currentPhrase = phrases[i];
+      input.placeholder = currentPhrase.substring(0, j);
+
+      if (!isDeleting && j < currentPhrase.length) {
+        j++;
+        setTimeout(type, 100);
+      } else if (isDeleting && j > 0) {
+        j--;
+        setTimeout(type, 40);
+      } else {
+        isDeleting = !isDeleting;
+        if (!isDeleting) i = (i + 1) % phrases.length;
+        setTimeout(type, isDeleting ? 500 : 1000);
+      }
+    }
+
+    type();
+  </script>
+
+</body>
+</html>

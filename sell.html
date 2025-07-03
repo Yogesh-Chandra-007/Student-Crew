@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Crew - Trade</title>
+  <link rel="stylesheet" href="sell.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+
+  <div class="glow-bg"></div>
+
+  <!-- Floating Profile Icon -->
+  <div class="profile-icon" onclick="toggleProfileMenu()"></div>
+  <div class="profile-menu" id="profileMenu">
+    <a href="profile.html">Profile</a>
+    <a href="history.html">History</a>
+    <a href="settings.html">Settings</a>
+    <a href="friends.html">Friends</a>
+    <a href="coins.html">Coins</a>
+    <a href="index.html">Logout</a>
+  </div>
+
+  <div class="login-container" style="max-width: 600px;">
+    <h1>Sell Your Product</h1>
+
+    <div class="form-group">
+      <input type="text" id="product-name" placeholder="Product Name" required />
+    </div>
+
+    <div class="form-group">
+      <select id="category" onchange="toggleOther()">
+        <option value="">Select Category</option>
+        <option value="stationery">Stationery</option>
+        <option value="essentials">Essentials</option>
+        <option value="others">Others</option>
+      </select>
+    </div>
+
+    <div class="form-group hidden" id="other-input">
+      <input type="text" id="other-category" placeholder="Enter Category" />
+    </div>
+
+    <div class="form-group">
+      <input type="number" id="price" placeholder="Selling Price (₹)" required />
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="block" placeholder="College Block" />
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="room" placeholder="Room Number" />
+    </div>
+
+    <div class="form-group">
+      <label for="image-upload" class="upload-label">Click to upload product image</label>
+      <input type="file" id="image-upload" class="hidden" accept="image/*" />
+    </div>
+
+    <button onclick="submitForm()">List Product</button>
+    <button class="back-btn" onclick="window.location.href='dashboard.html'">← Back to Dashboard</button>
+  </div>
+
+  <script>
+    function toggleProfileMenu() {
+      const menu = document.getElementById("profileMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    window.onclick = function(event) {
+      const menu = document.getElementById("profileMenu");
+      const icon = document.querySelector(".profile-icon");
+      if (!menu.contains(event.target) && !icon.contains(event.target)) {
+        menu.style.display = "none";
+      }
+    };
+
+    function toggleOther() {
+      const category = document.getElementById("category").value;
+      document.getElementById("other-input").classList.toggle("hidden", category !== "others");
+    }
+
+    function submitForm() {
+      alert("Product listed successfully!");
+    }
+
+    document.getElementById("image-upload").addEventListener("change", function () {
+      const label = document.querySelector(".upload-label");
+      label.textContent = this.files[0]?.name || "Click to upload product image";
+    });
+  </script>
+
+</body>
+</html>

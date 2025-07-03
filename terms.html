@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms & Conditions - Student Crew</title>
+  <link rel="stylesheet" href="terms.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <!-- Floating Profile -->
+  <div class="profile-icon" onclick="toggleProfileMenu()"></div>
+  <div class="profile-menu" id="profileMenu">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html">Profile</a>
+    <a href="settings.html">Settings</a>
+    <a href="friends.html">Friends</a>
+    <a href="coins.html">Coins</a>
+    <a href="index.html">Logout</a>
+  </div>
+
+  <!-- Top Navigation Links -->
+  <div class="top-links">
+    <a href="coins.html">💰 Coins</a>
+    <a href="faq.html">❓ FAQ</a>
+    <a href="report.html">🚨 Report</a>
+  </div>
+
+  <div class="terms-container">
+  <h1>📜 Terms & Conditions</h1>
+
+  
+    <section>
+    <h2>1. Acceptance</h2>
+    <p>By using Student Crew, you agree to follow these terms. If not, kindly don’t use the platform.</p>
+  </section>
+
+  <section>
+    <h2>2. Your Role</h2>
+    <p>You’re responsible for what you post, including any item listed.</p>
+  </section>
+
+  <section>
+    <h2>3. Forbidden Items</h2>
+    <p>Illegal, unsafe, or banned items are not allowed. Violators may be banned.</p>
+  </section>
+
+  <section>
+    <h2>4. Privacy</h2>
+    <p>Your data is protected and won’t be shared without permission.</p>
+  </section>
+
+  <section>
+    <h2>5. Account Ban</h2>
+    <p>Accounts may be suspended or removed for rule violations.</p>
+  </section>
+
+  <section>
+    <h2>6. Liability</h2>
+    <p>We are not responsible for indirect damages from using Student Crew.</p>
+  </section>
+  
+
+  <button class="back-btn" onclick="window.location.href='dashboard.html'">← Back to Dashboard</button>
+</div>
+
+
+
+  <script>
+    function toggleProfileMenu() {
+      const menu = document.getElementById("profileMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    window.onclick = function (e) {
+      const menu = document.getElementById("profileMenu");
+      const icon = document.querySelector(".profile-icon");
+      if (!menu.contains(e.target) && !icon.contains(e.target)) {
+        menu.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>

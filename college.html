@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Crew - Select College</title>
+  <link rel="stylesheet" href="college.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+
+  <div class="glow-bg"></div>
+
+  <div class="login-container">
+    <h1>Select Your College</h1>
+    <p>Choose your college to continue</p>
+
+    <form>
+      <div class="form-group">
+        <select id="college-select" required>
+          <option value="">Select your college</option>
+          <option value="VVIT">VVIT, Guntur</option>
+          <option value="JNTU-K">JNTU, Kakinada</option>
+          <option value="AUCE">AUCE, Visakhapatnam</option>
+          <option value="NIT-T">NIT, Tadepalligudem</option>
+          <option value="SVUCE">SVU, Tirupati</option>
+          <option value="VRSEC">VRSEC, Vijayawada</option>
+          <option value="GVPCE">GVPCE, Vizag</option>
+          <option value="Vignan">Vignan, Guntur</option>
+          <option value="GITAM">GITAM, Visakhapatnam</option>
+          <option value="RVRJC">RVR & JC, Guntur</option>
+          <option value="ANITS">ANITS, Visakhapatnam</option>
+        </select>
+      </div>
+      <button onclick="window.location.href='dashboard.html'">Continue</button>
+    </form>
+  </div>
+
+  <script>
+    function goToTrade() {
+      const college = document.getElementById("college-select").value;
+      if (college) {
+        window.location.href = "trade.html"; // update to actual trade page path
+      } else {
+        alert("Please select a college first!");
+      }
+    }
+  </script>
+
+</body>
+</html>

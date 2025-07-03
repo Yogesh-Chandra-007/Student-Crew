@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Crew - History</title>
+  <link rel="stylesheet" href="history.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+
+  <div class="glow-bg"></div>
+
+  <div class="login-container history-card">
+    <h1>History</h1>
+    <p>Your activity records</p>
+
+    <div id="historyTableContainer">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Price (₹)</th>
+            <th>Date</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody id="historyTableBody">
+          <!-- Filled by JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="no-history" class="no-history hidden">
+      No history available.
+    </div>
+
+    <!-- Back Button -->
+    <div class="btn-group" style="margin-top: 30px;">
+      <button onclick="goBack()">← Back</button>
+    </div>
+  </div>
+
+  <script>
+    const historyData = [
+      {
+        product: "Used Textbook",
+        category: "Stationery",
+        price: 150,
+        date: "2025-04-01",
+        type: "Bought"
+      },
+      {
+        product: "Drafting Set",
+        category: "Essentials",
+        price: 500,
+        date: "2025-03-15",
+        type: "Sold"
+      },
+      {
+        product: "Room Heater",
+        category: "Others",
+        price: 1200,
+        date: "2025-02-20",
+        type: "Bought"
+      }
+    ];
+
+    const tableBody = document.getElementById("historyTableBody");
+    const noHistory = document.getElementById("no-history");
+
+    if (historyData.length === 0) {
+      noHistory.classList.remove("hidden");
+    } else {
+      noHistory.classList.add("hidden");
+      historyData.forEach(entry => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${entry.product}</td>
+          <td>${entry.category}</td>
+          <td>₹${entry.price}</td>
+          <td>${entry.date}</td>
+          <td>${entry.type}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+
+</body>
+</html>

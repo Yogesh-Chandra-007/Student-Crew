@@ -1,0 +1,284 @@
+<!-- Student Crew Chat/Inbox Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inbox - Student Crew</title>
+  <link rel="stylesheet" href="inbox.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <!-- Profile Icon -->
+  <div class="profile-icon" onclick="toggleProfileMenu()"></div>
+  <div class="profile-menu" id="profileMenu">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html">Profile</a>
+    <a href="settings.html">Settings</a>
+    <a href="friends.html">Friends</a>
+    <a href="coins.html">Coins</a>
+    <a href="index.html">Logout</a>
+  </div>
+
+  <div class="inbox-container">
+    <div class="sidebar">
+      <h2>Chats</h2>
+      <ul class="chat-list">
+        <li class="active">
+          <img src="https://www.w3schools.com/howto/img_avatar.png" alt="User" />
+          <div>
+            <h4>John Doe</h4>
+            <p>Hey, is the calculator available?</p>
+          </div>
+        </li>
+        <li>
+          <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="User" />
+          <div>
+            <h4>Emily</h4>
+            <p>Thanks for the drafter!</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="chat-area">
+      <div class="chat-header">
+        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="User" />
+        <h3>John Doe</h3>
+      </div>
+
+      <div class="chat-messages">
+        <div class="message received">Hey, is the calculator available?</div>
+        <div class="message sent">Yes! It's still available. 😊</div>
+        <div class="message received">Cool! Can we meet in campus tomorrow?</div>
+        <div class="message sent">Sure, let's meet at 11 AM.</div>
+      </div>
+
+      <div class="message-input">
+        <input type="text" placeholder="Type your message..." />
+        <button>Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleProfileMenu() {
+      const menu = document.getElementById("profileMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+    window.onclick = function (e) {
+      const menu = document.getElementById("profileMenu");
+      const icon = document.querySelector(".profile-icon");
+      if (!menu.contains(e.target) && !icon.contains(e.target)) {
+        menu.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>
+
+<!-- inbox.css -->
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at center, #0f0c29, #302b63, #24243e);
+  color: white;
+}
+.glow-bg {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(150px);
+  transform: translate(-50%, -50%);
+  animation: pulse 6s infinite ease-in-out;
+  z-index: -1;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1) translate(-50%, -50%); opacity: 1; }
+  50% { transform: scale(1.2) translate(-50%, -50%); opacity: 0.6; }
+}
+.inbox-container {
+  display: flex;
+  height: 100vh;
+}
+.sidebar {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sidebar h2 {
+  margin-bottom: 20px;
+  color: cyan;
+}
+.chat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.chat-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.chat-list li.active,
+.chat-list li:hover {
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+.chat-list img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.chat-list h4 {
+  margin: 0;
+  font-size: 1em;
+  color: white;
+}
+.chat-list p {
+  margin: 0;
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.6);
+}
+.chat-area {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+}
+.chat-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid cyan;
+}
+.chat-header h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #00e6e6;
+}
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.message {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  line-height: 1.4;
+  width: fit-content;
+}
+.message.received {
+  background: rgba(255, 255, 255, 0.08);
+  align-self: flex-start;
+}
+.message.sent {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  align-self: flex-end;
+}
+.message-input {
+  display: flex;
+  gap: 10px;
+}
+.message-input input {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 1em;
+}
+.message-input input:focus {
+  outline: none;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+}
+.message-input button {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.message-input button:hover {
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+.profile-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-image: url('https://www.w3schools.com/howto/img_avatar.png');
+  background-size: cover;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  cursor: pointer;
+  z-index: 10;
+}
+.profile-menu {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  padding: 10px;
+  display: none;
+  z-index: 10;
+}
+.profile-menu a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.profile-menu a:hover {
+  color: #00c6ff;
+}
+@media (max-width: 768px) {
+  .inbox-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .chat-area {
+    padding: 10px;
+  }
+}
+</style>

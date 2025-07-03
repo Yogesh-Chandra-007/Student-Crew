@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Friends - Student Crew</title>
+  <link rel="stylesheet" href="friends.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <!-- Profile Icon -->
+  <div class="profile-icon" onclick="toggleProfileMenu()"></div>
+  <div class="profile-menu" id="profileMenu">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html">Profile</a>
+    <a href="settings.html">Settings</a>
+    <a href="coins.html">Coins</a>
+    <a href="index.html">Logout</a>
+  </div>
+
+  <div class="friends-container">
+    <h1>🧑‍🤝‍🧑 My Friends</h1>
+    <input type="text" placeholder="🔍 Search friends..." class="search-input" onkeyup="filterFriends()" />
+
+    <div class="friends-list" id="friendsList">
+      <div class="friend-card">
+        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Friend">
+        <div class="friend-info">
+          <h3>Rahul Kumar</h3>
+          <p>College: VVIT</p>
+          <p>Coins: 120</p>
+        </div>
+      </div>
+
+      <div class="friend-card">
+        <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Friend">
+        <div class="friend-info">
+          <h3>Ananya Rao</h3>
+          <p>College: AU</p>
+          <p>Coins: 95</p>
+        </div>
+      </div>
+
+      <div class="friend-card">
+        <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Friend">
+        <div class="friend-info">
+          <h3>Deepak Singh</h3>
+          <p>College: IIT-BHU</p>
+          <p>Coins: 50</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="back-btn" onclick="goBack()">← Back</button>
+  </div>
+
+  <script>
+    function toggleProfileMenu() {
+      const menu = document.getElementById("profileMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+    function goBack() {
+      window.history.back();
+      }
+
+    window.onclick = function (e) {
+      const menu = document.getElementById("profileMenu");
+      const icon = document.querySelector(".profile-icon");
+      if (!menu.contains(e.target) && !icon.contains(e.target)) {
+        menu.style.display = "none";
+      }
+    };
+
+    function filterFriends() {
+      const input = document.querySelector('.search-input');
+      const filter = input.value.toLowerCase();
+      const cards = document.querySelectorAll('.friend-card');
+      cards.forEach(card => {
+        const name = card.querySelector('h3').innerText.toLowerCase();
+        card.style.display = name.includes(filter) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

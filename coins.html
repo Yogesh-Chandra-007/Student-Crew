@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coins - Student Crew</title>
+  <link rel="stylesheet" href="coins.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <!-- Floating Profile -->
+  <div class="profile-icon" onclick="toggleProfileMenu()"></div>
+  <div class="profile-menu" id="profileMenu">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html">Profile</a>
+    <a href="settings.html">Settings</a>
+    <a href="friends.html">Friends</a>
+    <a href="index.html">Logout</a>
+  </div>
+
+  <div class="coins-container">
+    <h1>💰 Student Crew Coins</h1>
+
+    <section>
+      <h2>What are Coins?</h2>
+      <p>Coins are a special currency within Student Crew that lets you boost visibility, promote items, or unlock premium features.</p>
+    </section>
+
+    <section>
+      <h2>How to Earn Coins</h2>
+      <ul>
+        <li>🎉 Invite friends to join the platform</li>
+        <li>📤 Successfully post an item for sale</li>
+        <li>✅ Complete a transaction with good feedback</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How to Use Coins</h2>
+      <ul>
+        <li>🚀 Boost a listing to appear on top for 48 hours</li>
+        <li>🌟 Highlight an item with a glowing effect</li>
+        <li>🔓 Unlock additional chat requests or categories</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Important</h2>
+      <p>Coins are tied to your profile and are not transferable or refundable. Abuse may lead to suspension.</p>
+    </section>
+
+    <button class="back-btn" onclick="goBack()">← Back </button>
+  </div>
+
+  <script>
+    function toggleProfileMenu() {
+      const menu = document.getElementById("profileMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    window.onclick = function (e) {
+      const menu = document.getElementById("profileMenu");
+      const icon = document.querySelector(".profile-icon");
+      if (!menu.contains(e.target) && !icon.contains(e.target)) {
+        menu.style.display = "none";
+      }
+    };
+
+    function goBack() {
+      window.history.back(); // Go back to the previous page
+    }
+  </script>
+</body>
+</html>

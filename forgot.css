@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at center, #0f0c29, #302b63, #24243e);
+  color: white;
+  overflow-x: hidden;
+}
+.login-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  text-align: center;
+}
+.login-container h1 {
+  font-size: 2em;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+}
+.login-container p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 25px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: white;
+  font-size: 1em;
+  outline: none;
+}
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+select:focus {
+  outline: none;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+}
+select option {
+  background-color: #1e1e2f;
+  color: white;
+}
+button {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+button:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  transform: scale(1.05);
+}
+.login-links a {
+  color: #00c6ff;
+  text-decoration: none;
+  display: inline-block;
+  margin: 15px 10px 0;
+}
+.login-links a:hover {
+  color: #0072ff;
+}
+.glow-bg {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(150px);
+  transform: translate(-50%, -50%);
+  animation: glowPulse 6s infinite ease-in-out;
+  z-index: -1;
+}
+@keyframes glowPulse {
+  0%, 100% { transform: scale(1) translate(-50%, -50%); opacity: 1; }
+  50% { transform: scale(1.2) translate(-50%, -50%); opacity: 0.6; }
+}
+@media (max-width: 480px) {
+  .login-container {
+    margin: 40px 20px;
+    padding: 30px 20px;
+  }
+}

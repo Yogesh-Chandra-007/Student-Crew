@@ -1,0 +1,72 @@
+<!-- Student Crew - Report an Issue Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report an Issue - Student Crew</title>
+  <link rel="stylesheet" href="report.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <!-- Profile Icon -->
+  <div class="profile-icon" onclick="toggleProfileMenu()"></div>
+  <div class="profile-menu" id="profileMenu">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html">Profile</a>
+    <a href="settings.html">Settings</a>
+    <a href="friends.html">Friends</a>
+    <a href="coins.html">Coins</a>
+    <a href="index.html">Logout</a>
+  </div>
+
+  <div class="report-container">
+    <h1>🐞 Report an Issue</h1>
+    <form>
+      <label for="issue-type">Issue Type</label>
+      <select id="issue-type" required>
+        <option value="">Select</option>
+        <option value="bug">Bug</option>
+        <option value="content">Inappropriate Content</option>
+        <option value="suggestion">Feature Suggestion</option>
+      </select>
+
+      <label for="title">Issue Title</label>
+      <input type="text" id="title" placeholder="e.g. Chat not loading" required />
+
+      <label for="description">Description</label>
+      <textarea id="description" rows="5" placeholder="Describe the issue in detail..." required></textarea>
+
+      <label for="screenshot">Optional Screenshot</label>
+      <input type="file" id="screenshot" accept="image/*" />
+
+      <div class="form-buttons">
+        <button type="submit">Submit</button>
+        <button type="reset" class="cancel">Cancel</button>
+      </div>
+    </form>
+
+    <button class="back-btn" onclick="goBack()">← Back </button>
+  </div>
+
+  <script>
+    function toggleProfileMenu() {
+      const menu = document.getElementById("profileMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+    window.onclick = function (e) {
+      const menu = document.getElementById("profileMenu");
+      const icon = document.querySelector(".profile-icon");
+      if (!menu.contains(e.target) && !icon.contains(e.target)) {
+        menu.style.display = "none";
+      }
+    };
+    function goBack() {
+      window.history.back(); // Go back to the previous page
+    }
+  </script>
+</body>
+</html>
+

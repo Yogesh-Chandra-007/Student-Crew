@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Crew - Profile</title>
+  <link rel="stylesheet" href="profile.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+
+  <div class="glow-bg"></div>
+
+  <div class="login-container profile-card">
+    <div class="profile-pic"></div>
+    <h1>Your Profile</h1>
+
+    <div class="profile-info">
+      <p><strong>Name:</strong> John Doe</p>
+      <p><strong>Email:</strong> john@example.com</p>
+      <p><strong>Block:</strong> C-Block</p>
+      <p><strong>Room:</strong> 204</p>
+      <p><strong>Coins:</strong> 120</p>
+      <p><strong>Friends:</strong> 18</p>
+    </div>
+
+    <div class="btn-group">
+      <button onclick="window.location.href='settings.html'">Edit Profile</button>
+      <button onclick="goBack()">← Back</button>
+    </div>
+  </div>
+
+  <script>
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+
+</body>
+</html>
